@@ -19,5 +19,8 @@ public final class Main extends Addon {
   public void onEnable() {
     CommandBuilder.register("json:", JSONCommand.class);
     CommandBuilder.register("json-?broadcast:", JSONBroadcastCommand.class);
+    CommandBuilder.register("json-?action", JSONActionBarCommand.class);
+    CommandBuilder.register("json-?action-?broadcast", JSONActionBarBroadcastCommand.class);
+    CommandBuilder.register("json-?broadcast-?action", JSONActionBarBroadcastCommand.class);
   }
 }
