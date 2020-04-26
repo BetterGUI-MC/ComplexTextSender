@@ -45,6 +45,14 @@
               <minimizeJar>true</minimizeJar>
               <relocations>
                 <relocation>
+                  <pattern>com.google.gson</pattern>
+                  <shadedPattern>me.hsgamer.bettergui.complextextsender.lib.gson</shadedPattern>
+                </relocation>
+                <relocation>
+                  <pattern>org.checkerframework</pattern>
+                  <shadedPattern>me.hsgamer.bettergui.complextextsender.lib.checkerframework</shadedPattern>
+                </relocation>
+                <relocation>
                   <pattern>net.kyori</pattern>
                   <shadedPattern>me.hsgamer.bettergui.complextextsender.lib.kyori</shadedPattern>
                 </relocation>
