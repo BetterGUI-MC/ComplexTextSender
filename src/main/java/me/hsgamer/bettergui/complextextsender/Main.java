@@ -11,5 +11,7 @@ public final class Main extends Addon {
     CommandBuilder.register("json-?broadcast:", JSONBroadcastCommand.class);
     CommandBuilder.register("json-?action:", JSONActionCommand.class);
     CommandBuilder.register("json-?broadcast-?action:", JSONBroadcastActionCommand.class);
+    CommandBuilder.register("legacy-?action:", LegacyActionCommand.class);
+    CommandBuilder.register("legacy-?broadcast-?action:", LegacyBroadcastActionCommand.class);
   }
 }
