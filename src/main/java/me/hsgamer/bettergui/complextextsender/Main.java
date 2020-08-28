@@ -7,11 +7,11 @@ public final class Main extends Addon {
 
   @Override
   public void onEnable() {
-    CommandBuilder.register("json:", JSONCommand.class);
-    CommandBuilder.register("json-?broadcast:", JSONBroadcastCommand.class);
-    CommandBuilder.register("json-?action:", JSONActionCommand.class);
-    CommandBuilder.register("json-?broadcast-?action:", JSONBroadcastActionCommand.class);
-    CommandBuilder.register("legacy-?action:", LegacyActionCommand.class);
-    CommandBuilder.register("legacy-?broadcast-?action:", LegacyBroadcastActionCommand.class);
+    CommandBuilder.register(JSONCommand::new, "json:");
+    CommandBuilder.register(JSONBroadcastCommand::new, "json-?broadcast:");
+    CommandBuilder.register(JSONActionCommand::new, "json-?action:");
+    CommandBuilder.register(JSONBroadcastActionCommand::new, "json-?broadcast-?action:");
+    CommandBuilder.register(LegacyActionCommand::new, "legacy-?action:");
+    CommandBuilder.register(LegacyBroadcastActionCommand::new, "legacy-?broadcast-?action:");
   }
 }

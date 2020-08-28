@@ -15,7 +15,7 @@ public class LegacyActionCommand extends Command {
 
   @Override
   public void addToTaskChain(Player player, TaskChain<?> taskChain) {
-    Component component = LegacyComponentSerializer.INSTANCE.deserialize(getParsedCommand(player));
+    Component component = LegacyComponentSerializer.legacy().deserialize(getParsedCommand(player));
     taskChain.sync(() -> TextAdapter.sendActionBar(player, component));
   }
 }

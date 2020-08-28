@@ -16,6 +16,6 @@ public class JSONCommand extends Command {
   @Override
   public void addToTaskChain(Player player, TaskChain<?> taskChain) {
     Component component = GsonComponentSerializer.INSTANCE.deserialize(getParsedCommand(player));
-    taskChain.sync(() -> TextAdapter.sendComponent(player, component));
+    taskChain.sync(() -> TextAdapter.sendMessage(player, component));
   }
 }
