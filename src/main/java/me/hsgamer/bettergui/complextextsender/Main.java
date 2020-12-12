@@ -1,17 +1,29 @@
 package me.hsgamer.bettergui.complextextsender;
 
-import me.hsgamer.bettergui.builder.CommandBuilder;
-import me.hsgamer.bettergui.object.addon.Addon;
+import me.hsgamer.bettergui.api.addon.BetterGUIAddon;
+import me.hsgamer.bettergui.builder.ActionBuilder;
+import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 
-public final class Main extends Addon {
+public final class Main extends BetterGUIAddon {
+    private static BukkitAudiences bukkitAudiences;
 
-  @Override
-  public void onEnable() {
-    CommandBuilder.register(JSONCommand::new, "json:");
-    CommandBuilder.register(JSONBroadcastCommand::new, "json-?broadcast:");
-    CommandBuilder.register(JSONActionCommand::new, "json-?action:");
-    CommandBuilder.register(JSONBroadcastActionCommand::new, "json-?broadcast-?action:");
-    CommandBuilder.register(LegacyActionCommand::new, "legacy-?action:");
-    CommandBuilder.register(LegacyBroadcastActionCommand::new, "legacy-?broadcast-?action:");
-  }
+    public static BukkitAudiences getBukkitAudiences() {
+        return bukkitAudiences;
+    }
+
+    @Override
+    public boolean onLoad() {
+        bukkitAudiences = BukkitAudiences.create(getPlugin());
+        return true;
+    }
+
+    @Override
+    public void onEnable() {
+        ActionBuilder.INSTANCE.register(JSONAction::new, "json");
+        ActionBuilder.INSTANCE.register(JSONBroadcastAction::new, "json-broadcast", "jsonbroadcast");
+        ActionBuilder.INSTANCE.register(JSONBarAction::new, "json-action", "jsonaction");
+        ActionBuilder.INSTANCE.register(JSONBroadcastBarAction::new, "json-broadcast-action");
+        ActionBuilder.INSTANCE.register(LegacyBarAction::new, "legacy-action", "legacyaction");
+        ActionBuilder.INSTANCE.register(LegacyBroadcastBarAction::new, "legacy-broadcast-action");
+    }
 }
