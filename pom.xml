@@ -6,7 +6,7 @@
 
   <groupId>me.hsgamer.bettergui</groupId>
   <artifactId>ComplexTextSender</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
   <packaging>jar</packaging>
 
   <name>ComplexTextSender</name>
@@ -92,7 +92,7 @@
     <dependency>
       <groupId>me.HSGamer</groupId>
       <artifactId>BetterGUI</artifactId>
-      <version>5.0</version>
+      <version>6.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
