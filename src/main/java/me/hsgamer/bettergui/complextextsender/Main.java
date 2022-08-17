@@ -1,10 +1,10 @@
 package me.hsgamer.bettergui.complextextsender;
 
-import me.hsgamer.bettergui.api.addon.BetterGUIAddon;
 import me.hsgamer.bettergui.builder.ActionBuilder;
+import me.hsgamer.hscore.bukkit.addon.PluginAddon;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 
-public final class Main extends BetterGUIAddon {
+public final class Main extends PluginAddon {
     private static BukkitAudiences bukkitAudiences;
 
     public static BukkitAudiences getBukkitAudiences() {

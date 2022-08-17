@@ -1,21 +1,26 @@
 package me.hsgamer.bettergui.complextextsender;
 
+import me.hsgamer.bettergui.BetterGUI;
 import me.hsgamer.bettergui.api.action.BaseAction;
-import me.hsgamer.bettergui.lib.taskchain.TaskChain;
+import me.hsgamer.bettergui.builder.ActionBuilder;
+import me.hsgamer.hscore.task.BatchRunnable;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
+import org.bukkit.Bukkit;
 
 import java.util.UUID;
 
 public class JSONAction extends BaseAction {
-
-    public JSONAction(String string) {
-        super(string);
+    protected JSONAction(ActionBuilder.Input input) {
+        super(input);
     }
 
     @Override
-    public void addToTaskChain(UUID uuid, TaskChain<?> taskChain) {
+    public void accept(UUID uuid, BatchRunnable.Process process) {
         Component component = GsonComponentSerializer.colorDownsamplingGson().deserialize(getReplacedString(uuid));
-        taskChain.sync(() -> Main.getBukkitAudiences().player(uuid).sendMessage(component));
+        Bukkit.getScheduler().runTask(BetterGUI.getInstance(), () -> {
+            Main.getBukkitAudiences().player(uuid).sendMessage(component);
+            process.next();
+        });
     }
 }
