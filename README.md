@@ -1,3 +1,5 @@
+> DEPRECATED: Switch to [PaperSpec](https://github.com/BetterGUI-MC/PaperSpec)
+
 # ComplexTextSender
 Send Complex Text (JSON) for BetterGUI
 
